@@ -1,0 +1,20 @@
+Path is a wooden puzzle game. The purpose is to move green and red buttons such that finally they are in opposite places than at the beginning - the green ones are at the top and the red ones at the bottom. It is possible to reach this final situation with 31 moves, in minimum. It is not allowed to move a button over another one, but the moves are made along a path of empty places. A move can be as long as there is such kind of path. If move is illegal, a warning message is emitted. 
+
+Every widget of the interface is positioned constrainedly in the constant VIEW_X and VIEW_Y, which is the location of the graphics view and makes it easier to manage widget locatiosn. QPushButton was used to display and move. Green and red buttons are color-assigned by method 'update_board'; unused buttons are hidden and empty button cannot be neither clicked nor moved. Buttons are then connected to its slot in a loop. User can move a button by first click onto the button, then second click at the desired location. The program is implemented in such a way that a button, when first clicked, turns darker as a sign that the button is clicked once. Moves made is 1 unit increment if a button has a succeessful change in its location; otherwise, nothing happens (if user unchoose the button for example)
+
+Timer starts only when the first move is successful, to avoid any unwanted time waste in any situation. The timer stops when game is paused and game is completed. To display the timer and moves made, widget LCDNumber is used; these are placed above the board of buttons. 
+
+Reset, Pause, Animate, and Undo is possible in this game. Reset button sets the entire game to initial state. Pause button when being clicked stops the timer and disables other buttons, as well as the game grid button; the pause button then shows resume (informs about the pause for the user), which allows user to continue on playing games after pause. Animate button automatically moves the button and completes the game within 31 moves. While the game is animated after the click, other buttons are disabled, timer and moves made keep increasing as normal. Undo button enables to cancel any number of moves, untile no moves left. This functionality makes use of a vector, of which elements are a pair of Point (the location of buttons). If Undo button is clicked in case there are no previous moves, the interface gives a warning message. 
+
+If the user manages to complete the game, a winning message is shown and a congratulating gif appears on the interface. In case there are only a minimum 31 moves are made, the background color changes to a light pink color without changing any feature of any widget displayed. After winning the game, only reset button is enabled. 
+
+Every widget is initialized and connected to its corresponding slot in methods 'init...', which are then called in the constructor of Class mainwindow. 
+
+This UI implementation of path game meets all minimum requirements. Extra features are as follow:
+- Figures or icons has been used for reasonable purposes: congratulating gif. Additional figures are intendeed but not implemented due to unwanted bugs. 
+- The game has an animation feature. 
+- The background color of the user interface changes, when the player finishes the game with a minimum amount of moves (31)
+- The game has a pause button
+- The game has an undo functionality
+
+
